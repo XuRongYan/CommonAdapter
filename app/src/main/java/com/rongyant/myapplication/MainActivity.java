@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
+import com.rongyant.recyclercommonadapter.MyDecoration;
 import com.rongyant.recyclercommonadapter.MyItemTouchHelperCallback;
 
 import java.util.ArrayList;
@@ -39,13 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         recyclerView.setAdapter(adapter);
         adapter.addHeaderView(R.layout.item_recycler2);
+        recyclerView.addItemDecoration(new MyDecoration(this, MyDecoration.VERTICAL));
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
-
-
-
-
     }
 }
